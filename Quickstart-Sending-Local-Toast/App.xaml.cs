@@ -49,6 +49,10 @@ namespace Quickstart_Sending_Local_Toast
             await OnLaunchedOrActivated(e);
         }
 
+        /// <summary>
+        /// Invoked when the application is activated by some means other than normal launching.
+        /// </summary>
+        /// <param name="e">Event data for the event.</param>
         protected override async void OnActivated(IActivatedEventArgs e)
         {
             await OnLaunchedOrActivated(e);
@@ -56,7 +60,7 @@ namespace Quickstart_Sending_Local_Toast
 
         private async Task OnLaunchedOrActivated(IActivatedEventArgs e)
         {
-            // Initialize required items before the app is loaded
+            // Initialize things like registering background task before the app is loaded
             await InitializeApp();
 
 #if DEBUG

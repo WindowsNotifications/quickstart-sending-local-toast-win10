@@ -27,6 +27,7 @@ namespace Quickstart_Sending_Local_Toast
             string logo = "ms-appdata:///local/Andrew.jpg";
             string conversationId = "384928";
 
+            // Construct the visuals of the toast
             ToastVisual visual = new ToastVisual()
             {
                 TitleText = new ToastText()
@@ -54,6 +55,7 @@ namespace Quickstart_Sending_Local_Toast
                 }
             };
 
+            // Construct the actions for the toast (inputs and buttons)
             ToastActionsCustom actions = new ToastActionsCustom()
             {
                 Inputs =
