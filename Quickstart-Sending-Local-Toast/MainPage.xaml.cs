@@ -25,7 +25,7 @@ namespace Quickstart_Sending_Local_Toast
             string content = "Check this out, Happy Canyon in Utah!";
             string image = "http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-01-71-81-permanent/2727.happycanyon1_5B00_1_5D00_.jpg";
             string logo = "ms-appdata:///local/Andrew.jpg";
-            string conversationId = "384928";
+            int conversationId = "384928";
 
             // Construct the visuals of the toast
             ToastVisual visual = new ToastVisual()
@@ -71,7 +71,7 @@ namespace Quickstart_Sending_Local_Toast
                     new ToastButton("Reply", new QueryString()
                     {
                         { "action", "reply" },
-                        { "conversationId", conversationId }
+                        { "conversationId", conversationId.ToString() }
 
                     }.ToString())
                     {
@@ -86,7 +86,7 @@ namespace Quickstart_Sending_Local_Toast
                     new ToastButton("Like", new QueryString()
                     {
                         { "action", "like" },
-                        { "conversationId", conversationId }
+                        { "conversationId", conversationId.ToString() }
 
                     }.ToString())
                     {
@@ -113,7 +113,7 @@ namespace Quickstart_Sending_Local_Toast
                 Launch = new QueryString()
                 {
                     { "action", "viewConversation" },
-                    { "conversationId", conversationId }
+                    { "conversationId", conversationId.ToString() }
 
                 }.ToString()
             };
