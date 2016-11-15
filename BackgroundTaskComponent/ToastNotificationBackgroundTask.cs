@@ -1,5 +1,5 @@
 ﻿using Microsoft.QueryStringDotNET;
-using NotificationsExtensions.Toasts;
+using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,14 +98,20 @@ namespace BackgroundTaskComponent
             {
                 Visual = new ToastVisual()
                 {
-                    TitleText = new ToastText()
+                    BindingGeneric = new ToastBindingGeneric()
                     {
-                        Text = "Background Task Completed"
-                    },
+                        Children =
+                        {
+                            new AdaptiveText()
+                            {
+                                Text = "Background Task Completed"
+                            },
 
-                    BodyTextLine1 = new ToastText()
-                    {
-                        Text = message
+                            new AdaptiveText()
+                            {
+                                Text = message
+                            }
+                        }
                     }
                 }
             };
