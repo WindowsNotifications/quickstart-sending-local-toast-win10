@@ -50,8 +50,6 @@ namespace BackgroundTaskComponent
                 }
 
                 // Otherwise handle other background activations
-                else
-                    throw new NotImplementedException();
             }
 
             finally
@@ -88,10 +86,6 @@ namespace BackgroundTaskComponent
             SendToast("Your like has been sent!");
         }
 
-        /// <summary>
-        /// Simple method to show a basic toast with a message.
-        /// </summary>
-        /// <param name="message"></param>
         private void SendToast(string message)
         {
             ToastContent content = new ToastContent()
