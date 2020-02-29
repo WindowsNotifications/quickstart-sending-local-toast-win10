@@ -1,8 +1,8 @@
-﻿using NotificationsExtensions.Toasts;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Notifications;
 using Microsoft.QueryStringDotNET;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -30,28 +30,31 @@ namespace Quickstart_Sending_Local_Toast
             // Construct the visuals of the toast
             ToastVisual visual = new ToastVisual()
             {
-                TitleText = new ToastText()
+                BindingGeneric = new ToastBindingGeneric()
                 {
-                    Text = title
-                },
-
-                BodyTextLine1 = new ToastText()
-                {
-                    Text = content
-                },
-
-                InlineImages =
-                {
-                    new ToastImage()
+                    Children =
                     {
-                        Source = new ToastImageSource(image)
-                    }
-                },
+                        new AdaptiveText()
+                        {
+                            Text = title
+                        },
 
-                AppLogoOverride = new ToastAppLogo()
-                {
-                    Source = new ToastImageSource(logo),
-                    Crop = ToastImageCrop.Circle
+                        new AdaptiveText()
+                        {
+                            Text = content
+                        },
+
+                        new AdaptiveImage()
+                        {
+                            Source = image
+                        }
+                    },
+
+                    AppLogoOverride = new ToastGenericAppLogo()
+                    {
+                        Source = logo,
+                        HintCrop = ToastGenericAppLogoCrop.Circle
+                    }
                 }
             };
 
